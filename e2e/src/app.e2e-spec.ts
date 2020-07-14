@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('bannerflow-assignement app is running!');
+    expect(page.getTitleText()).toEqual('redit-feed app is running!');
   });
 
   afterEach(async () => {
