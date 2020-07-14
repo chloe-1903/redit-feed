@@ -1,0 +1,10 @@
+.post-card {
+  width: 200px;
+  margin: 10px;
+  height: 350px;
+
+  .mat-card-image {
+    height: 100px;
+    object-fit: cover;
+  }
+}
