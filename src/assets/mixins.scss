@@ -1,0 +1,14 @@
+@import "variables";
+
+@mixin text-mixin {
+  font-family: Roboto, sans-serif, Helvetica;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: $default-black;
+}
+
+@mixin title-mixin{
+  @include text-mixin;
+  font-size: 1.6em;
+  font-weight: 500;
+}
