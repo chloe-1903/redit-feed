@@ -1,10 +1,23 @@
 .post-card {
-  width: 200px;
+  width: 230px;
   margin: 10px;
   height: 350px;
 
+  .mat-card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    word-break: break-all;
+
+  }
+
   .mat-card-image {
-    height: 100px;
+    height: 150px;
+    width: 100%;
     object-fit: cover;
+    margin: unset;
   }
 }
