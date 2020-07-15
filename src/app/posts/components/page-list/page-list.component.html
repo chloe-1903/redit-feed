@@ -1,3 +1,8 @@
 <div class="post-cards-container">
   <app-post-entry *ngFor="let post of (posts$ | async)" [post]="post"></app-post-entry>
 </div>
+
+<mat-paginator [length]="100"
+               [pageSize]="paginationLimit"
+               [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>

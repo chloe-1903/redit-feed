@@ -13,10 +13,12 @@ export class PageListComponent implements OnInit, OnDestroy {
   posts$ = new BehaviorSubject<Post>(null);
   postsSubscription: Subscription;
 
+  paginationLimit = 25;
+
   constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
-    this.postsService.getPostings(this.sub).subscribe((result) => {
+    this.postsService.getPostings(this.sub, this.paginationLimit).subscribe((result) => {
       console.log(result);
       this.posts$.next(result);
     });
