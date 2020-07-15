@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'redit-feed'`, () => {
+  it(`should have as title 'reddit-feed'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('redit-feed');
+    expect(app.title).toEqual('reddit-feed');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('redit-feed app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('reddit-feed app is running!');
   });
 });
