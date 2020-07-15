@@ -14,6 +14,10 @@ export class Post {
     this.permalink = obj.permalink;
     this.numComments = obj.num_comments;
     this.created = new Date(obj.created_utc * 1000);
-    this.thumbnail = obj.thumbnail;
+    if (obj.thumbnail === 'self') {
+      this.thumbnail = 'assets/default-thumbnail.png';
+    } else {
+      this.thumbnail = obj.thumbnail;
+    }
   }
 }
