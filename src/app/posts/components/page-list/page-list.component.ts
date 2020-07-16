@@ -16,7 +16,7 @@ export class PageListComponent implements OnInit, OnDestroy {
   paginationBeforePost: string;
   paginationAfterPost: string;
   paginationCountItems = 0;
-  paginationLimit = 5;
+  paginationLimit = 10;
 
   constructor(private postsService: PostsService) { }
 

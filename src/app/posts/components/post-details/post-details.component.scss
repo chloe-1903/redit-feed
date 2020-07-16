@@ -1,0 +1,25 @@
+@import "../../../../assets/mixins.scss";
+
+.header {
+  font-weight: 500;
+
+  .title {
+    font-size: 18px;
+  }
+  .subtitle {
+    text-align: end;
+    color: $dark-grey;
+  }
+}
+
+.content {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    max-height: 80vh;
+    margin: auto;
+  }
+}

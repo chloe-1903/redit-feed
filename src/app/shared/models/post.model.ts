@@ -6,6 +6,9 @@ export class Post {
   numComments: number;
   created: Date;
   thumbnail: string;
+  url: string; // image url
+  postHint: string;
+  selftext: string;
 
   constructor(obj?: any) {
     this.title = obj.title;
@@ -18,6 +21,9 @@ export class Post {
       this.thumbnail = 'assets/default-thumbnail.png';
     } else {
       this.thumbnail = obj.thumbnail;
+      this.url = obj.url;
     }
+    this.selftext = obj.selftext;
+    this.postHint = obj.post_hint;
   }
 }

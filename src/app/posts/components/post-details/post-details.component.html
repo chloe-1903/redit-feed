@@ -1,0 +1,8 @@
+<div class="header">
+  <div class="title">{{post.title}}</div>
+  <div class="subtitle">by {{post.author}}, on {{post.created | date}}</div>
+</div>
+<div class="content">
+  <img *ngIf="post.postHint === 'image'" [src]="post.url" [alt]="post.title">
+  <div *ngIf="post.postHint === 'self'" class="selftext">{{post.selftext}}</div>
+</div>

@@ -1,4 +1,4 @@
-<mat-card class="post-card">
+<mat-card class="post-card" (click)="openDetails()">
   <mat-card-header>
     <mat-card-title [matTooltip]="post.title" [matTooltipShowDelay]="500">{{ post.title }}</mat-card-title>
     <mat-card-subtitle>by {{post.author}} on {{post.created | date}}</mat-card-subtitle>
