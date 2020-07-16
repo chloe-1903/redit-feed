@@ -2,7 +2,14 @@
   <div class="title">{{post.title}}</div>
   <div class="subtitle">by {{post.author}}, on {{post.created | date}}</div>
 </div>
-<div class="content">
-  <img *ngIf="post.postHint === 'image'" [src]="post.url" [alt]="post.title">
-  <div *ngIf="post.postHint === 'self'" class="selftext">{{post.selftext}}</div>
+<div class="content" [ngSwitch]="post.kind">
+  <img *ngSwitchCase="postKinds.IMAGE" [src]="post.url" [alt]="post.title">
+  <div *ngSwitchCase="postKinds.SELF" class="selftext">{{post.selftext}}</div>
+  <div *ngSwitchCase="postKinds.LINK" class="link-preview">
+    <img [src]="post.thumbnail">
+    {{post.title}}
+  </div>
+  <div *ngSwitchCase="postKinds.VIDEO">
+    <div [innerHTML]="post.video"></div>
+  </div>
 </div>

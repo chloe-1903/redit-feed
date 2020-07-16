@@ -1,3 +1,5 @@
+import {Kind} from '../enums/kind.enum';
+
 export class Post {
   title: string;
   author: string;
@@ -6,9 +8,10 @@ export class Post {
   numComments: number;
   created: Date;
   thumbnail: string;
-  url: string; // image url
-  postHint: string;
+  url: string;
+  kind: Kind;
   selftext: string;
+  video: string;
 
   constructor(obj?: any) {
     this.title = obj.title;
@@ -24,6 +27,10 @@ export class Post {
       this.url = obj.url;
     }
     this.selftext = obj.selftext;
-    this.postHint = obj.post_hint;
+    this.kind = obj.post_hint;
+    if (this.kind === Kind.VIDEO) {
+      this.video = obj.media.oembed.html;
+    }
+    console.log(this.kind);
   }
 }
