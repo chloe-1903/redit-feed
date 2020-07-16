@@ -12,7 +12,7 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPostings(sub: string, paginationLimit = 25): Observable<Post>{
+  getPostings(sub: string, paginationLimit = 25): Observable<Array<Post>>{
     const getFeedUrl = `${this.url}r/${sub}.json`;
     return this.http.get<any>(getFeedUrl).pipe(
       map(response => {

@@ -2,7 +2,7 @@
   <app-post-entry *ngFor="let post of (posts$ | async)" [post]="post"></app-post-entry>
 </div>
 
-<mat-paginator [length]="100"
-               [pageSize]="paginationLimit"
-               [pageSizeOptions]="[5, 10, 25, 100]">
-</mat-paginator>
+<div class="pagination" *ngIf="(posts$ | async).length > 0">
+  <button mat-flat-button>Previous</button>
+  <button mat-flat-button>Next</button>
+</div>

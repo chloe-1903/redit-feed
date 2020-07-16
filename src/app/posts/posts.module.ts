@@ -4,8 +4,7 @@ import { PageListComponent } from './components/page-list/page-list.component';
 import { PostEntryComponent } from './components/post-entry/post-entry.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [PageListComponent, PostEntryComponent],
@@ -13,7 +12,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CommonModule,
     MatCardModule,
     MatTooltipModule,
-    MatPaginatorModule
+    MatButtonModule
   ]
 })
 export class PostsModule { }

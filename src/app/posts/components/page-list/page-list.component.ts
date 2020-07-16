@@ -10,7 +10,7 @@ import {Post} from '../../../shared/models/post.model';
 })
 export class PageListComponent implements OnInit, OnDestroy {
   sub = 'sweden';
-  posts$ = new BehaviorSubject<Post>(null);
+  posts$ = new BehaviorSubject<Array<Post>>(null);
   postsSubscription: Subscription;
 
   paginationLimit = 25;
