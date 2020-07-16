@@ -9,7 +9,7 @@ export class Post {
 
   constructor(obj?: any) {
     this.title = obj.title;
-    this.author = obj.author_fullname;
+    this.author = obj.author_flair_text || 'anonymous';
     this.score = obj.score;
     this.permalink = obj.permalink;
     this.numComments = obj.num_comments;

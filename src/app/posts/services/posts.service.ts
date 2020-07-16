@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Post} from '../../shared/models/post.model';
+import {PaginateList} from '../../shared/models/paginated-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,30 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPostings(sub: string, paginationLimit = 25): Observable<Array<Post>>{
+  getPostings(sub: string, paginationLimit: number, paginationCount: number, previous: string, next: string): Observable<PaginateList<Post>>{
+    console.log(paginationCount);
     const getFeedUrl = `${this.url}r/${sub}.json`;
-    return this.http.get<any>(getFeedUrl).pipe(
+    let paginationParams = new HttpParams();
+    if (paginationLimit !== null) {
+      paginationParams =  paginationParams.append('limit', paginationLimit.toString());
+    }
+    if (paginationCount !== null) {
+      paginationParams =  paginationParams.append('count', paginationCount.toString());
+    }
+    if (previous) {
+      paginationParams =  paginationParams.append('before', previous);
+    }
+    if (next) {
+      paginationParams =  paginationParams.append('after', next);
+    }
+    return this.http.get<any>(getFeedUrl, {params: paginationParams}).pipe(
       map(response => {
-        return response.data.children.map((item) => {
+        const posts = response.data.children.map((item) => {
           return new Post(item.data);
         });
+        // issue in the API : response.data.before is always empty
+        // response.data.children[0].data.name
+        return new PaginateList<Post>(response.data.before, response.data.after, posts);
       })
     );
   }
