@@ -35,12 +35,17 @@ export class PageListComponent implements OnInit, OnDestroy {
     });
   }
 
-  changePage(action) {
+  changePage(action: string) {
     if (action === 'previous') {
       this.updatePosts(this.paginationBeforePost, null);
     } else if (action === 'next') {
       this.updatePosts(null, this.paginationAfterPost);
     }
+  }
+
+  changeItemsPerPage(nb: number) {
+    this.paginationItemsPerPage = nb;
+    this.updatePosts(null, null);
   }
 
   ngOnDestroy(): void {

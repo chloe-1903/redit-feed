@@ -13,6 +13,7 @@ export class PaginationComponent implements OnInit {
   @Input() disabledNext = false;
 
   @Output() pageChanges = new EventEmitter<string>();
+  @Output() itemsPerPageChanges = new EventEmitter<number>();
 
   constructor() { }
 
