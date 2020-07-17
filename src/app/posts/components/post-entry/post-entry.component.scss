@@ -1,7 +1,13 @@
 @import "../../../../assets/mixins.scss";
 
+:host {
+  width: 25%;
+  box-sizing: border-box;
+}
+
 .post-card {
-  width: 200px;
+  max-width: 250px;
+  min-width: 150px;
   margin: 10px;
   cursor: pointer;
   background-color: $default-white;
@@ -44,5 +50,28 @@
        color: $light-red;
      }
   }
+}
 
+
+@media screen and (max-width: 990px) {
+  :host {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  :host {
+    width: 50%;
+  }
+
+  .mat-card-image {
+    height: 110px;
+    width: 100px;
+    object-fit: cover;
+    margin: unset;
+  }
+
+  .post-card {
+    min-width: 120px;
+  }
 }

@@ -1,8 +1,15 @@
 .post-cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
+
+.post-cards-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 
 .pagination {
   display: flex;
