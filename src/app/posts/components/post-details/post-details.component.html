@@ -6,13 +6,18 @@
   </div>
 </div>
 <div class="content" [ngSwitch]="post.kind">
-  <img *ngSwitchCase="postKinds.IMAGE" [src]="post.url" [alt]="post.title">
+  <img *ngSwitchCase="postKinds.IMAGE" class="content-img" [src]="post.url" [alt]="post.title">
   <div *ngSwitchCase="postKinds.SELF" class="selftext">
     <markdown [data]="post.selftext"></markdown>
   </div>
   <div *ngSwitchCase="postKinds.LINK" class="link-preview">
-    <img [src]="post.thumbnail">
-    {{post.title}}
+      <a [href]="post.url">
+        <img [src]="post.thumbnail">
+        <div class="description">
+          <div>{{post.title}}</div>
+          <div class="url">{{post.url | truncate:[70]}}</div>
+        </div>
+      </a>
   </div>
   <div *ngSwitchCase="postKinds.RICH_VIDEO">
     <div [innerHTML]="innerContent"></div>

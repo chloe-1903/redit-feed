@@ -10,6 +10,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MarkdownModule} from 'ngx-markdown';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [PageListComponent, PostEntryComponent, PostDetailsComponent],
@@ -21,7 +22,8 @@ import {MarkdownModule} from 'ngx-markdown';
     MatDialogModule,
     MatIconModule,
     HttpClientModule,
-    MarkdownModule.forRoot({ loader: HttpClient })
+    MarkdownModule.forRoot({loader: HttpClient}),
+    SharedModule
   ]
 })
 export class PostsModule { }

@@ -30,7 +30,33 @@
     }
   }
 
-  img, video {
+  .link-preview {
+    border: solid 0.5px $dark-grey;
+    width: 90%;
+    margin-top: 15px;
+
+    a {
+      color: $default-black;
+      text-decoration: none;
+      display: flex;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 5px;
+      .url {
+        color: $dark-grey;
+        font-variant: all-petite-caps;
+        text-align: end;
+      }
+    }
+
+
+  }
+
+  .content-img, video {
     max-height: 80vh;
     max-width: 100%;
     margin: auto;
