@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
   declarations: [PageListComponent, PostEntryComponent, PostDetailsComponent],
@@ -17,7 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatTooltipModule,
     MatButtonModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({ loader: HttpClient })
   ]
 })
 export class PostsModule { }

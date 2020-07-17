@@ -7,7 +7,9 @@
 </div>
 <div class="content" [ngSwitch]="post.kind">
   <img *ngSwitchCase="postKinds.IMAGE" [src]="post.url" [alt]="post.title">
-  <div *ngSwitchCase="postKinds.SELF" class="selftext">{{post.selftext}}</div>
+  <div *ngSwitchCase="postKinds.SELF" class="selftext">
+    <markdown [data]="post.selftext"></markdown>
+  </div>
   <div *ngSwitchCase="postKinds.LINK" class="link-preview">
     <img [src]="post.thumbnail">
     {{post.title}}
