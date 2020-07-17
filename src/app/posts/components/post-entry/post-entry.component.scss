@@ -1,7 +1,8 @@
+@import "../../../../assets/mixins.scss";
+
 .post-card {
-  width: 150px;
+  width: 200px;
   margin: 10px;
-  height: 270px;
   cursor: pointer;
 
   .mat-card-header {
@@ -18,10 +19,31 @@
     }
   }
 
-  .mat-card-image {
-    height: 150px;
-    width: 100%;
-    object-fit: cover;
-    margin: unset;
+  .mat-card-content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    .mat-card-image {
+      height: 150px;
+      width: 140px;
+      object-fit: cover;
+      margin: unset;
+    }
   }
+
+  .mat-card-footer {
+    text-align: end;
+    color: $dark-grey;
+    margin: 10px -10px -10px -10px;
+
+    span {
+      margin-right: 5px;
+    }
+
+    .mat-icon {
+      vertical-align: middle;
+      font-size: 20px;
+    }
+  }
+
 }

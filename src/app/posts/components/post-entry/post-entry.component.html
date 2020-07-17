@@ -3,5 +3,11 @@
     <mat-card-title [matTooltip]="post.title" [matTooltipShowDelay]="500">{{ post.title }}</mat-card-title>
     <mat-card-subtitle>by {{post.author}} on {{post.created | date}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="post.thumbnail" [alt]="post.title">
+  <mat-card-content>
+    <img mat-card-image [src]="post.thumbnail" [alt]="post.title">
+  </mat-card-content>
+  <mat-card-footer>
+    <span matTooltip="Score" matTooltipPosition="after"><mat-icon>score</mat-icon>{{post.score}}</span>
+    <span matTooltip="Comments" matTooltipPosition="after"><mat-icon>comments</mat-icon>{{post.numComments}}</span>
+  </mat-card-footer>
 </mat-card>
