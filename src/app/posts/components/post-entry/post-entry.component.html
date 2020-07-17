@@ -7,7 +7,7 @@
     <img mat-card-image [src]="post.thumbnail" [alt]="post.title">
   </mat-card-content>
   <mat-card-footer>
-    <span matTooltip="Score" matTooltipPosition="after"><mat-icon>score</mat-icon>{{post.score}}</span>
-    <span matTooltip="Comments" matTooltipPosition="after"><mat-icon>comments</mat-icon>{{post.numComments}}</span>
+    <span [class.high]="post.score > 1000">{{post.score}} points</span>-
+    <span>{{post.numComments}} comments</span>
   </mat-card-footer>
 </mat-card>
