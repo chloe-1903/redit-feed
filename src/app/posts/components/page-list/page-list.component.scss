@@ -9,14 +9,3 @@
   display: table;
   clear: both;
 }
-
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-
-  button + button {
-    margin-left: 20px;
-  }
-}

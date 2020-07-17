@@ -1,0 +1,18 @@
+<div class="pagination">
+
+  <div class="action-buttons">
+    <button mat-flat-button (click)="pageChanges.emit('previous')" [disabled]="disabledPrevious">Previous</button>
+    <button mat-flat-button (click)="pageChanges.emit('next')" [disabled]="disabledNext">Next</button>
+  </div>
+
+  <div class="items-number-selection">
+    <mat-form-field>
+      <mat-select [(value)]="itemsPerPage">
+        <mat-option *ngFor="let opt of paginationOptions" [value]="opt">
+          {{opt}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <span>items per page</span>
+  </div>
+</div>

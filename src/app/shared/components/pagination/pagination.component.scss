@@ -1,0 +1,28 @@
+.pagination {
+  position: relative;
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    button {
+      width: 100px;
+    }
+
+    button + button {
+      margin-left: 30px;
+    }
+  }
+
+  .items-number-selection {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    mat-form-field {
+      width: 40px;
+      margin-right: 10px;
+    }
+  }
+}

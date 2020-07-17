@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MarkdownModule} from 'ngx-markdown';
 import {SharedModule} from '../shared/shared.module';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [PageListComponent, PostEntryComponent, PostDetailsComponent],
@@ -18,12 +19,11 @@ import {SharedModule} from '../shared/shared.module';
     CommonModule,
     MatCardModule,
     MatTooltipModule,
-    MatButtonModule,
     MatDialogModule,
     MatIconModule,
     HttpClientModule,
     MarkdownModule.forRoot({loader: HttpClient}),
-    SharedModule
+    SharedModule,
   ]
 })
 export class PostsModule { }

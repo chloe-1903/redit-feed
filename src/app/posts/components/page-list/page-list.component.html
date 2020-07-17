@@ -4,7 +4,7 @@
 
 <!--we do not use page numbers because the content changes so frequently-->
 <!--(infinite scrolling would be nice here)-->
-<div class="pagination" *ngIf="(posts$ | async)?.length > 0">
-  <button mat-flat-button (click)="updatePosts(paginationBeforePost, null)" [disabled]="!paginationBeforePost">Previous</button>
-  <button mat-flat-button (click)="updatePosts(null, paginationAfterPost)" [disabled]="!paginationAfterPost">Next</button>
-</div>
+<app-pagination  *ngIf="(posts$ | async)?.length > 0" [itemsPerPage]="paginationItemsPerPage"
+                 [disabledNext]="!paginationAfterPost" [disabledPrevious]="!paginationBeforePost"
+                 (pageChanges)="changePage($event)">
+</app-pagination>
