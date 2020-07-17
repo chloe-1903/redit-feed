@@ -11,12 +11,14 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 })
 export class PostDetailsComponent implements OnInit {
   postKinds = Kind;
-  html: SafeHtml;
+  innerContent: SafeHtml;
 
   constructor(@Inject(MAT_DIALOG_DATA) public post: Post, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.html = this.sanitizer.bypassSecurityTrustHtml(this.post.video);
+    if (this.post.innerContent) {
+      this.innerContent = this.sanitizer.bypassSecurityTrustHtml(this.post.innerContent);
+    }
   }
 
 }

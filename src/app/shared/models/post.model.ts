@@ -11,7 +11,7 @@ export class Post {
   url: string;
   kind: Kind;
   selftext: string;
-  video: string;
+  innerContent: string;
 
   constructor(obj?: any) {
     this.title = obj.title;
@@ -28,9 +28,14 @@ export class Post {
     }
     this.selftext = obj.selftext;
     this.kind = obj.post_hint;
-    if (this.kind === Kind.VIDEO) {
-      this.video = obj.media.oembed.html;
+    if (this.kind === Kind.RICH_VIDEO) {
+      this.innerContent = this.decodeHtml(obj.media.oembed.html);
+    } else if (this.kind === Kind.HOSTED_VIDEO) {
+      this.url = obj.media.reddit_video.fallback_url;
     }
-    console.log(this.kind);
+  }
+
+  private decodeHtml(str: string): string {
+    return str.split('&lt;').join('<').split('&gt;').join('>');
   }
 }

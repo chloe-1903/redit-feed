@@ -9,7 +9,10 @@
     <img [src]="post.thumbnail">
     {{post.title}}
   </div>
-  <div *ngSwitchCase="postKinds.VIDEO">
-    <div [innerHTML]="post.video"></div>
+  <div *ngSwitchCase="postKinds.RICH_VIDEO">
+    <div [innerHTML]="innerContent"></div>
+  </div>
+  <div *ngSwitchCase="postKinds.HOSTED_VIDEO">
+    <video [src]="post.url"></video>
   </div>
 </div>
