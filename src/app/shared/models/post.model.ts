@@ -33,6 +33,10 @@ export class Post {
     } else if (this.kind === Kind.HOSTED_VIDEO) {
       this.url = obj.media.reddit_video.fallback_url;
     }
+
+    if (this.selftext && !this.kind) {
+      this.kind = Kind.SELF;
+    }
   }
 
   private decodeHtml(str: string): string {
