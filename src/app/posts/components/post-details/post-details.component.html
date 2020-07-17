@@ -1,6 +1,9 @@
 <div class="header">
   <div class="title">{{post.title}}</div>
-  <div class="subtitle">by {{post.author}}, on {{post.created | date}}</div>
+  <div class="subtitle">
+    <span>by {{post.author}}, on {{post.created | date}}</span>
+    <span>{{post.score | number}} points - {{post.numComments | number}} comments</span>
+  </div>
 </div>
 <div class="content" [ngSwitch]="post.kind">
   <img *ngSwitchCase="postKinds.IMAGE" [src]="post.url" [alt]="post.title">
