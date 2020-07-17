@@ -31,6 +31,7 @@ export class PageListComponent implements OnInit, OnDestroy {
       this.paginationCountItems = result.postList.length;
       this.paginationBeforePost = result.before;
       this.paginationAfterPost = result.after;
+      window.scroll(0, 0);
     });
   }
 
