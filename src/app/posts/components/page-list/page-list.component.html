@@ -1,3 +1,11 @@
+<mat-form-field>
+  <mat-label>Sub reddit</mat-label>
+  <input matInput [formControl]="searchInputFormControl" (keydown.enter)="submitSearchSub()">
+  <button class="clear-btn" mat-button *ngIf="searchInputFormControl.value != ''" matSuffix mat-icon-button aria-label="Clear" (click)="searchInputFormControl.patchValue('')">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
 <div class="post-cards-container">
   <app-post-entry *ngFor="let post of (posts$ | async)" [post]="post"></app-post-entry>
 </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Post} from '../../shared/models/post.model';
@@ -13,14 +13,14 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPostings(sub: string, paginationLimit: number, paginationCount: number, previous: string, next: string): Observable<PaginateList<Post>>{
-    console.log(paginationCount);
+  getPostings(sub: string, paginationLimit: number, paginationCount: number,
+              previous: string, next: string): Observable<PaginateList<Post>>{
     const getFeedUrl = `${this.url}r/${sub}.json`;
     let paginationParams = new HttpParams();
     if (paginationLimit !== null) {
       paginationParams =  paginationParams.append('limit', paginationLimit.toString());
     }
-    if (paginationCount !== null) {
+    if (paginationCount !== null && paginationCount !== 0) {
       paginationParams =  paginationParams.append('count', paginationCount.toString());
     }
     if (previous) {
