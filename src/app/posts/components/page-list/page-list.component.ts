@@ -27,7 +27,7 @@ export class PageListComponent implements OnInit, OnDestroy {
   }
 
   updatePosts(before: string, after: string) {
-    this.postsService.getPostings(this.searchInputFormControl.value, this.paginationItemsPerPage, this.paginationCountItems, before, after).subscribe((result) => {
+    this.postsSubscription = this.postsService.getPosts(this.searchInputFormControl.value, this.paginationItemsPerPage, this.paginationCountItems, before, after).subscribe((result) => {
       this.posts$.next(result.postList);
       this.paginationCountItems = result.postList.length;
       this.paginationBeforePost = result.before;

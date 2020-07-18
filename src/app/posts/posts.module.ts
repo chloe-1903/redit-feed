@@ -5,7 +5,7 @@ import { PostEntryComponent } from './components/post-entry/post-entry.component
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MarkdownModule} from 'ngx-markdown';

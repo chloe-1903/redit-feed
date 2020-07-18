@@ -13,7 +13,7 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPostings(sub: string, paginationLimit: number, paginationCount: number,
+  getPosts(sub: string, paginationLimit: number, paginationCount: number,
               previous: string, next: string): Observable<PaginateList<Post>>{
     const getFeedUrl = `${this.url}r/${sub}.json`;
     let paginationParams = new HttpParams();
