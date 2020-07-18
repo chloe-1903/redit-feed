@@ -1,3 +1,5 @@
+@import "../../../../assets/mixins.scss";
+
 mat-form-field {
   display: flex;
   justify-content: center;
@@ -8,6 +10,20 @@ mat-form-field {
   }
 }
 
+.error {
+  margin: 20vh auto 0 auto;
+  font-size: 20px;
+  width: 70vw;
+  display: flex;
+  text-align: center;
+
+  mat-icon {
+    color: $light-red;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
 
 .post-cards-container {
   display: flex;

@@ -1,8 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {PostsService} from '../../services/posts.service';
-import {BehaviorSubject, Subscription} from 'rxjs';
+import {BehaviorSubject, of, Subscription} from 'rxjs';
 import {Post} from '../../../shared/models/post.model';
 import {FormControl} from '@angular/forms';
+import {catchError, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-page-list',
@@ -10,13 +11,13 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./page-list.component.scss']
 })
 export class PageListComponent implements OnInit, OnDestroy {
-  posts$ = new BehaviorSubject<Array<Post>>(null);
+  posts$ = new BehaviorSubject<Array<Post>>([]);
   postsSubscription: Subscription;
   searchInputFormControl: FormControl;
+  error: string;
 
   paginationBeforePost: string;
   paginationAfterPost: string;
-  paginationCountItems = 0;
   paginationItemsPerPage = 10;
 
   constructor(private postsService: PostsService) { }
@@ -27,23 +28,32 @@ export class PageListComponent implements OnInit, OnDestroy {
   }
 
   updatePosts(before: string, after: string) {
-    this.postsSubscription = this.postsService.getPosts(this.searchInputFormControl.value, this.paginationItemsPerPage, this.paginationCountItems, before, after).subscribe((result) => {
-      this.posts$.next(result.postList);
-      this.paginationCountItems = result.postList.length;
-      this.paginationBeforePost = result.before;
-      console.log(result.before);
-      this.paginationAfterPost = result.after;
-      window.scroll(0, 0);
-    });
+    const actualPageCount = this.posts$.getValue().length;
+    this.postsSubscription = this.postsService.getPosts(this.searchInputFormControl.value, this.paginationItemsPerPage, actualPageCount, before, after)
+      .pipe(
+        tap((result) => {
+          this.posts$.next(result.postList);
+          this.paginationBeforePost = result.before;
+          this.paginationAfterPost = result.after;
+          window.scroll(0, 0);
+          if (result.postList.length === 0) {
+            this.error = `There is no reddit post on the sub "${this.searchInputFormControl.value}".`;
+          } else {
+            this.error = undefined;
+          }
+        }), catchError(err => {
+          this.error = `An error occurred while getting reddit posts on the sub "${this.searchInputFormControl.value}". Are you sure this sub really exists? If so, you can try again later.`;
+          this.posts$.next([]);
+          return of(null);
+        })
+    ).subscribe();
   }
 
   submitSearchSub() {
-    this.paginationCountItems = 0;
     this.updatePosts(null, null);
   }
 
   changePage(action: string) {
-    this.paginationCountItems = 0;
     if (action === 'previous') {
       this.updatePosts(this.paginationBeforePost, null);
     } else if (action === 'next') {
