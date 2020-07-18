@@ -17,12 +17,20 @@
 
   .items-number-selection {
     position: absolute;
-    top: 0;
+    top: -10px;
     right: 0;
 
     mat-form-field {
       width: 40px;
       margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .items-number-selection {
+      position: relative;
+      width: fit-content;
+      margin: auto;
     }
   }
 }
