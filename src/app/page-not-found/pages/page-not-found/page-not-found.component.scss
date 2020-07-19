@@ -1,0 +1,23 @@
+h1 {
+  font-size: 80px;
+  margin-top: 5rem;
+  margin-bottom: 25px;
+  .material-icons {
+    font-size: 60px;
+    margin-left: -12px;
+  }
+}
+
+p {
+  font-size: 25px;
+}
+
+h1, p {
+  text-align: center;
+}
+
+.btn-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

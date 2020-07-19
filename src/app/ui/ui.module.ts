@@ -4,6 +4,7 @@ import {UiComponent} from './components/ui/ui.component';
 import {HeaderComponent} from './components/header/header.component';
 import {RouterModule} from '@angular/router';
 import {PostsModule} from '../posts/posts.module';
+import {PageNotFoundModule} from '../page-not-found/page-not-found.module';
 
 @NgModule({
   declarations: [HeaderComponent, UiComponent],
@@ -11,7 +12,8 @@ import {PostsModule} from '../posts/posts.module';
   imports: [
     CommonModule,
     RouterModule,
-    PostsModule
+    PostsModule,
+    PageNotFoundModule
   ]
 })
 export class UiModule { }
