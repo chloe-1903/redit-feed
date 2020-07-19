@@ -1,0 +1,10 @@
+<button mat-button (click)="closeComments.emit()">
+  <i class="material-icons back-icon">arrow_back</i>
+  back
+</button>
+
+<div class="comments-wrapper">
+  <div *ngFor="let comment of (comments$|async)">
+    <app-comment [comment]="comment"></app-comment>
+  </div>
+</div>

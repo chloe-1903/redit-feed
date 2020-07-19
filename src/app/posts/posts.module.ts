@@ -13,9 +13,12 @@ import {SharedModule} from '../shared/shared.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { PostCommentsComponent } from './components/post-comments/post-comments.component';
+import { PostPopupComponent } from './components/post-popup/post-popup.component';
 
 @NgModule({
-  declarations: [PageListComponent, PostEntryComponent, PostDetailsComponent],
+  declarations: [PageListComponent, PostEntryComponent, PostDetailsComponent, PostCommentsComponent, PostPopupComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -28,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatButtonModule,
   ]
 })
 export class PostsModule { }

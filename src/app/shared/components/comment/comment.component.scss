@@ -1,0 +1,15 @@
+@import "../../../../assets/mixins.scss";
+
+.comment {
+  border-top: solid 0.5px $dark-grey;
+  padding: 10px;
+
+  .author {
+    font-weight: 500;
+  }
+
+  .date {
+    margin-left: 2px;
+    color: $dark-grey;
+  }
+}

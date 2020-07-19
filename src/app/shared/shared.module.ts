@@ -4,14 +4,16 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 
 @NgModule({
-  declarations: [TruncatePipe, PaginationComponent],
+  declarations: [TruncatePipe, PaginationComponent, CommentComponent],
   exports: [
     TruncatePipe,
-    PaginationComponent
+    PaginationComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

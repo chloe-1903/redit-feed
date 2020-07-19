@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../../../shared/models/post.model';
-import {PostDetailsComponent} from '../post-details/post-details.component';
 import {MatDialog} from '@angular/material/dialog';
+import {PostPopupComponent} from '../post-popup/post-popup.component';
 
 @Component({
   selector: 'app-post-entry',
@@ -14,7 +14,7 @@ export class PostEntryComponent implements OnInit {
   constructor(private dialog: MatDialog) { }
 
   openDetails() {
-    this.dialog.open(PostDetailsComponent, {
+    this.dialog.open(PostPopupComponent, {
       data: this.post,
       width: '70vw',
       autoFocus: false

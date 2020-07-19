@@ -1,0 +1,2 @@
+<app-post-details *ngIf="!commentsOpened" [post]="post" (openComments)="commentsOpened=true"></app-post-details>
+<app-post-comments *ngIf="commentsOpened" [post]="post" (closeComments)="commentsOpened = false"></app-post-comments>

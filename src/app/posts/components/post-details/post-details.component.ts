@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Post} from '../../../shared/models/post.model';
 import {Kind} from '../../../shared/enums/kind.enum';
@@ -12,8 +12,10 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 export class PostDetailsComponent implements OnInit {
   postKinds = Kind;
   innerContent: SafeHtml;
+  @Input() post: Post;
+  @Output() openComments = new EventEmitter();
 
-  constructor(@Inject(MAT_DIALOG_DATA) public post: Post, private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     if (this.post.innerContent) {

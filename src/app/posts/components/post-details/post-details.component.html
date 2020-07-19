@@ -2,7 +2,12 @@
   <div class="title">{{post.title}}</div>
   <div class="subtitle">
     <span>by {{post.author}}, on {{post.created | date}}</span>
-    <span>{{post.score | number}} points - {{post.numComments | number}} comments</span>
+    <div>
+      <span>{{post.score | number}} points - </span>
+      <button mat-flat-button (click)="openComments.emit()" class="comments-btn">
+        {{post.numComments | number}} comments
+      </button>
+    </div>
   </div>
 </div>
 <div class="content" [ngSwitch]="post.kind">
