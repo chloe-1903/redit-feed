@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PostsService} from '../../services/posts.service';
 import {BehaviorSubject, of, Subscription} from 'rxjs';
 import {Post} from '../../../shared/models/post.model';
@@ -29,14 +29,14 @@ export class PageListComponent implements OnInit, OnDestroy {
 
   updatePosts(before: string, after: string) {
     const actualPageCount = this.posts$.getValue().length;
-    this.postsSubscription = this.postsService.getPosts(this.searchInputFormControl.value, this.paginationItemsPerPage, actualPageCount, before, after)
-      .pipe(
+    this.postsSubscription = this.postsService.getPosts(this.searchInputFormControl.value,
+      this.paginationItemsPerPage, actualPageCount, before, after).pipe(
         tap((result) => {
-          this.posts$.next(result.postList);
+          this.posts$.next(result.itemsList);
           this.paginationBeforePost = result.before;
           this.paginationAfterPost = result.after;
           window.scroll(0, 0);
-          if (result.postList.length === 0) {
+          if (result.itemsList.length === 0) {
             this.error = `There is no reddit post on the sub "${this.searchInputFormControl.value}".`;
           } else {
             this.error = undefined;

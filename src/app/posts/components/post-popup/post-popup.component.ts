@@ -8,6 +8,7 @@ import {Post} from '../../../shared/models/post.model';
   styleUrls: ['./post-popup.component.scss']
 })
 export class PostPopupComponent implements OnInit {
+  // whether we should open post details or its comments
   commentsOpened = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public post: Post) { }

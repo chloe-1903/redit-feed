@@ -20,15 +20,17 @@ export class Post {
     this.permalink = obj.permalink;
     this.numComments = obj.num_comments;
     this.created = new Date(obj.created_utc * 1000);
+    this.url = obj.url;
+    this.selftext = obj.selftext;
+    this.kind = obj.post_hint;
+
     // default thumbnail image
     if (obj.thumbnail === 'self') {
       this.thumbnail = 'assets/default-thumbnail.png';
     } else {
       this.thumbnail = obj.thumbnail;
     }
-    this.url = obj.url;
-    this.selftext = obj.selftext;
-    this.kind = obj.post_hint;
+
     if (this.kind === Kind.RICH_VIDEO) {
       this.innerContent = this.decodeHtml(obj.media.oembed.html);
     } else if (this.kind === Kind.HOSTED_VIDEO) {
@@ -40,6 +42,10 @@ export class Post {
     }
   }
 
+  /**
+   * Decoding html content given by the server to display it on templates
+   * @param str : html string to decode
+   */
   private decodeHtml(str: string): string {
     return str.split('&lt;').join('<').split('&gt;').join('>');
   }

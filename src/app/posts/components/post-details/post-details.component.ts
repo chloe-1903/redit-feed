@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Post} from '../../../shared/models/post.model';
 import {Kind} from '../../../shared/enums/kind.enum';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';

@@ -1,11 +1,11 @@
-export class PaginateList<T> {
+export class PaginatedList<T> {
   before: string;
   after: string;
-  postList: Array<T>;
+  itemsList: Array<T>;
 
-  constructor(before: string, after: string, postList: Array<T>) {
+  constructor(before: string, after: string, itemsList: Array<T>) {
     this.before = before;
     this.after = after;
-    this.postList = postList;
+    this.itemsList = itemsList;
   }
 }
