@@ -65,11 +65,6 @@ export class PageListComponent implements OnInit, OnDestroy {
     }
   }
 
-  changeItemsPerPage(nb: number) {
-    this.paginationItemsPerPage = nb;
-    this.updatePosts(null, null, 0);
-  }
-
   ngOnDestroy(): void {
     if (this.postsSubscription) {
       this.postsSubscription.unsubscribe();

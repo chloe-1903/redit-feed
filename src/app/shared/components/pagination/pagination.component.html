@@ -7,7 +7,7 @@
 
   <div class="items-number-selection">
     <mat-form-field>
-      <mat-select [(value)]="itemsPerPage" (valueChange)="itemsPerPageChanges.emit(itemsPerPage)">
+      <mat-select [(value)]="itemsPerPage" (valueChange)="itemsPerPageChange.emit(itemsPerPage)">
         <mat-option *ngFor="let opt of paginationOptions" [value]="opt">
           {{opt}}
         </mat-option>

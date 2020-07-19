@@ -18,7 +18,7 @@
 
 <!--we do not use page numbers because the content changes so frequently-->
 <!--(infinite scrolling would be nice here)-->
-<app-pagination  *ngIf="(posts$ | async)?.length > 0" [itemsPerPage]="paginationItemsPerPage"
+<app-pagination *ngIf="(posts$ | async)?.length > 0" [(itemsPerPage)]="paginationItemsPerPage"
                  [disabledNext]="!paginationAfterPost" [disabledPrevious]="!paginationBeforePost"
-                 (pageChanges)="changePage($event)" (itemsPerPageChanges)="changeItemsPerPage($event)">
+                 (pageChanges)="changePage($event)" (itemsPerPageChange)="updatePosts(null, null, 0)">
 </app-pagination>
