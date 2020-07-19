@@ -24,11 +24,10 @@ export class PageListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.searchInputFormControl = new FormControl('sweden');
-    this.updatePosts(null, null);
+    this.updatePosts(null, null, 0);
   }
 
-  updatePosts(before: string, after: string) {
-    const actualPageCount = this.posts$.getValue().length;
+  updatePosts(before: string, after: string, actualPageCount: number) {
     this.postsSubscription = this.postsService.getPosts(this.searchInputFormControl.value,
       this.paginationItemsPerPage, actualPageCount, before, after).pipe(
         tap((result) => {
@@ -51,7 +50,7 @@ export class PageListComponent implements OnInit, OnDestroy {
 
   submitSearchSub() {
     if (this.searchInputFormControl.value) {
-      this.updatePosts(null, null);
+      this.updatePosts(null, null, 0);
     } else {
       this.posts$.next([]);
       this.error = 'Please enter a sub name';
@@ -60,15 +59,15 @@ export class PageListComponent implements OnInit, OnDestroy {
 
   changePage(action: string) {
     if (action === 'previous') {
-      this.updatePosts(this.paginationBeforePost, null);
+      this.updatePosts(this.paginationBeforePost, null, this.posts$.getValue().length);
     } else if (action === 'next') {
-      this.updatePosts(null, this.paginationAfterPost);
+      this.updatePosts(null, this.paginationAfterPost, this.posts$.getValue().length);
     }
   }
 
   changeItemsPerPage(nb: number) {
     this.paginationItemsPerPage = nb;
-    this.updatePosts(null, null);
+    this.updatePosts(null, null, 0);
   }
 
   ngOnDestroy(): void {
