@@ -16,7 +16,7 @@ export class PostEntryComponent implements OnInit {
   openDetails() {
     this.dialog.open(PostDetailsComponent, {
       data: this.post,
-      width: '60vw',
+      width: '70vw',
       autoFocus: false
     });
   }
