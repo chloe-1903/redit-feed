@@ -16,6 +16,8 @@ mat-form-field {
   width: 70vw;
   display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 
   mat-icon {
     color: $light-red;

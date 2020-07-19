@@ -50,7 +50,12 @@ export class PageListComponent implements OnInit, OnDestroy {
   }
 
   submitSearchSub() {
-    this.updatePosts(null, null);
+    if (this.searchInputFormControl.value) {
+      this.updatePosts(null, null);
+    } else {
+      this.posts$.next([]);
+      this.error = 'Please enter a sub name';
+    }
   }
 
   changePage(action: string) {

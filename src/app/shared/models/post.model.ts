@@ -25,7 +25,7 @@ export class Post {
     this.kind = obj.post_hint;
 
     // default thumbnail image
-    if (obj.thumbnail === 'self') {
+    if (obj.thumbnail === 'self' || obj.thumbnail === 'default') {
       this.thumbnail = 'assets/default-thumbnail.png';
     } else {
       this.thumbnail = obj.thumbnail;
