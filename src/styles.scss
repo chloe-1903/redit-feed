@@ -1,4 +1,83 @@
 @import "assets/mixins.scss";
+@import '~@angular/material/theming';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $default-grey; }
+
+@include mat-core();
+
+
+
+$mat-app-primary: (
+  50 : #e0effa,
+  100 : #b3d7f2,
+  200 : #80bce9,
+  300 : #4da1e0,
+  400 : #268dda,
+  500 : #0079d3,
+  600 : #0071ce,
+  700 : #0066c8,
+  800 : #005cc2,
+  900 : #0049b7,
+  A100 : #e0eaff,
+  A200 : #adc8ff,
+  A400 : #7aa6ff,
+  A700 : #6195ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$mat-app-accent: (
+  50 : #ffe9e0,
+  100 : #ffc7b3,
+  200 : #ffa280,
+  300 : #ff7d4d,
+  400 : #ff6126,
+  500 : #ff4500,
+  600 : #ff3e00,
+  700 : #ff3600,
+  800 : #ff2e00,
+  900 : #ff1f00,
+  A100 : #ffffff,
+  A200 : #fff3f2,
+  A400 : #ffc4bf,
+  A700 : #ffaca6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$primary: mat-palette($mat-app-primary);
+$accent: mat-palette($mat-app-accent);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
