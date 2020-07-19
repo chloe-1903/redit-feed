@@ -2,7 +2,7 @@
 @import '~@angular/material/theming';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $default-grey; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: $default-grey; @include text-mixin; }
 
 @include mat-core();
 
