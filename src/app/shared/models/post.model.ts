@@ -20,12 +20,13 @@ export class Post {
     this.permalink = obj.permalink;
     this.numComments = obj.num_comments;
     this.created = new Date(obj.created_utc * 1000);
+    // default thumbnail image
     if (obj.thumbnail === 'self') {
       this.thumbnail = 'assets/default-thumbnail.png';
     } else {
       this.thumbnail = obj.thumbnail;
-      this.url = obj.url;
     }
+    this.url = obj.url;
     this.selftext = obj.selftext;
     this.kind = obj.post_hint;
     if (this.kind === Kind.RICH_VIDEO) {
@@ -33,7 +34,7 @@ export class Post {
     } else if (this.kind === Kind.HOSTED_VIDEO) {
       this.url = obj.media.reddit_video.fallback_url;
     }
-
+    // some posts don't have any kind, so we set it here:
     if (this.selftext && !this.kind) {
       this.kind = Kind.SELF;
     }

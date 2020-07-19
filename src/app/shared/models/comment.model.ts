@@ -6,6 +6,6 @@ export class UserComment {
   constructor(obj?: any) {
     this.author = obj.author;
     this.content = obj.body;
-    this.date = new Date(obj.created);
+    this.date = new Date(obj.created * 1000);
   }
 }

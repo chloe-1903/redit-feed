@@ -1,7 +1,7 @@
 <div class="header">
   <div class="title">{{post.title}}</div>
   <div class="subtitle">
-    <span>by {{post.author}}, on {{post.created | date}}</span>
+    <span>by {{post.author}}, on {{post.created | date: "MM/dd/yyyy 'at' h:mma"}}</span>
     <div>
       <span>{{post.score | number}} points - </span>
       <button mat-flat-button (click)="openComments.emit()" class="comments-btn">
