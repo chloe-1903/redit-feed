@@ -1,6 +1,12 @@
 # RedditFeed
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.10.
+This project is a feed displaying entries from a sub reddit JSON feed.
+It offers the following features : 
+* See the paginated list of posts
+* Change sub
+* Change the number a posts per page
+* See details of a post
+* See comments of a post
 
 ## Development server
 
